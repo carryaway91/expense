@@ -3,7 +3,7 @@
 
 body {
   width: calc(100% - 4wv);
-  padding: 8vh 4vw;
+  padding: 6vh 4vw;
   font-family: "Lato";
   margin: 0 auto;
   background-color: $main-bg;
@@ -20,11 +20,6 @@ body {
   }
 }
 
-.main-wrap {
-  display: flex;
-  flex-direction: column;
-  position: relative;
-}
 h1, h2, h3, h4, h5, h6, p {
   color: darken($main-color, 45%);
   margin: 0;

@@ -12,7 +12,7 @@ import { GraphColumn } from "../enums/graph-column";
 export class IncomeExportService {
   public incomeTotal: number = 0;
   public expensesTotal: number = 0;
-  @Inject('data') data: IncomeExpensesGraphModel[]
+  @Inject('data') data: IncomeExpensesGraphModel[];
   public totalAmount: number;
   public totalExpenses: number;
   public lastFiveTransactions: IncomeExpensesModel[];
@@ -36,7 +36,8 @@ export class IncomeExportService {
   limitForCurrentMonthChanged = new Subject<number>()
   categoriesChanged = new Subject<Category[]>()
   getLimitForCurrentMonthChanged = new Subject<number>();
-
+  spendings$ = new Subject<IncomeExpensesModel[]>()
+  spendingsComputed$ = new Subject<{ name: string; amount: number}[]>();
 
   categoriesList: Category[] = []
 
@@ -209,5 +210,17 @@ export class IncomeExportService {
 
   getCategories() {
     return this.categoriesList;
+  }
+
+  getCategory(category_id: string) {
+    return this.getCategories().find(c => c.id === category_id)!.name
+  }
+
+  getSpendings(): IncomeExpensesModel[] {
+    const spendings = this.getAllTransaction().filter(i => i.type === GraphColumn.EXPENSE)
+    const computed:any = []
+    this.spendingsComputed$.next(computed)
+    this.spendings$.next(spendings)
+    return spendings;
   }
 }

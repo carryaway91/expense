@@ -1,0 +1,15 @@
+@import '../../../variables';
+
+.chart-wrapper {
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+}
+
+h2 {
+  font-size: $heading-font-size;
+  text-align: center;
+  margin-bottom: 3vh;
+}
+#chart {
+}

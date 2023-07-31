@@ -28,6 +28,7 @@ import { HistoryOverviewComponent } from './containers/history-overview/history-
 import { OverallOverviewComponent } from './containers/overall-overview/overall-overview.component';
 import { SettingsPanelComponent } from './components/settings-panel/settings-panel.component';
 import { CategoriesComponent } from './containers/settings/categories/categories.component';
+import { NgApexchartsModule } from 'ng-apexcharts';
 
 @NgModule({
   declarations: [
@@ -57,6 +58,7 @@ import { CategoriesComponent } from './containers/settings/categories/categories
     CategoriesComponent,
   ],
   imports: [
+    NgApexchartsModule,
     BrowserModule,
     AppRoutingModule,
     FormsModule,
