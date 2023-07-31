@@ -7,6 +7,7 @@
 h3, p {
   text-align: center;
   font-size: $font-size;
+  margin-bottom: 2vh;
 }
 p {
   font-weight: bold;
@@ -22,4 +23,16 @@ p {
 .source {
   color: rgb(148, 148, 148);
   font-size: .8rem;
+}
+
+.transaction-list {
+  height: 89vh;
+  overflow-y:scroll;
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */;
+  padding-bottom: 5vh
+}
+
+.transaction-list::-webkit-scrollbar {
+  display: none
 }

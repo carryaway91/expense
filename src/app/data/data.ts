@@ -124,8 +124,36 @@ export const allTransaction: IncomeExpensesModel[] = [
 
   },
   {
-    id: 234234,
-    type: GraphColumn.INCOME,
+    id: 32423432,
+    type: GraphColumn.EXPENSE,
+    amount: 60000,
+    category_id: categories[2].id,
+    date: new Date()
+  },
+  {
+    id: 67567,
+    type: GraphColumn.EXPENSE,
+    amount: 60000,
+    category_id: categories[2].id,
+    date: new Date()
+  },
+  {
+    id: 12331,
+    type: GraphColumn.EXPENSE,
+    amount: 60000,
+    category_id: categories[2].id,
+    date: new Date()
+  },
+  {
+    id: 8678678,
+    type: GraphColumn.EXPENSE,
+    amount: 60000,
+    category_id: categories[2].id,
+    date: new Date()
+  },
+  {
+    id: 23423423,
+    type: GraphColumn.EXPENSE,
     amount: 60000,
     category_id: categories[2].id,
     date: new Date()

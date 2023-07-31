@@ -46,7 +46,7 @@ export class IncomeExportService {
     this.incomeTotal = this.data[0].amount
     this.expensesTotal = this.data[1].amount
     this.lastFiveTransactions = allTransaction.slice(0, 5)
-    this.categoriesList = categories;
+    this.categoriesList = this.capitalize(categories);
 
     let date = new Date()
     this.currentMonth = new Intl.DateTimeFormat("en-US", { month: "long"}).format(date)
@@ -54,6 +54,14 @@ export class IncomeExportService {
     this.getLimitForCurrentMonth()
   }
 
+  capitalize(cat: Category[]): Category[] {
+    let capitalized: Category[] = [];
+    capitalized = cat.map(c => {
+      c.name = c.name.slice(0, 1).toUpperCase() + c.name.slice(1, c.name.length).toLowerCase()
+      return c
+    })
+    return capitalized
+  }
   getLimitForCurrentMonth(): LimitModel | undefined {
     const lim = limit
     if(lim.month === this.currentMonth) {
@@ -170,6 +178,7 @@ export class IncomeExportService {
     this.allTransactions.unshift(data)
     this.allTransactionsChanged.next(this.allTransactions);
     this.setSpendings()
+    this.addLastFiveTransactionsChanged.next(this.allTransactions.slice(0, 5));
   }
 
   addToLastFive(data: IncomeExpensesModel) {
@@ -183,9 +192,15 @@ export class IncomeExportService {
   }
 
   addCategory(category: Category) {
-    this.categoriesList.push(category)
-    this.categoriesChanged.next(this.categoriesList)
-  }
+    const categoryNameCapitalized = category.name.slice(0, 1).toUpperCase() + category.name.slice(1, category.name.length).toLowerCase()
+    const existingCategory = this.categoriesList.find(c => c.name === categoryNameCapitalized);
+    if(!existingCategory) {
+      this.categoriesList.push(category)
+      this.categoriesChanged.next(this.categoriesList)
+    } else {
+      alert(`Category "${existingCategory.name}" already exists.`)
+    }
+   }
 
   removeCategory(id: string) {
     this.categoriesList = this.categoriesList.filter(c => c.id !== id)

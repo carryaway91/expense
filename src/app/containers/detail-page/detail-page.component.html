@@ -1,3 +1,5 @@
 <h3>Transactions for July</h3>
-<app-transaction-detail-item *ngFor="let item of allTransactions" [transaction]="item">
-</app-transaction-detail-item>
+<div class="transaction-list">
+  <app-transaction-detail-item *ngFor="let item of allTransactions" [transaction]="item">
+  </app-transaction-detail-item>
+</div>

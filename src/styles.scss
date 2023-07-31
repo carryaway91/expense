@@ -3,16 +3,17 @@
 
 body {
   width: calc(100% - 4wv);
-  padding: 4vw;
+  padding: 4vh 4vw;
   font-family: "Lato";
   margin: 0 auto;
   background-color: $main-bg;
-  height: 100vh;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   border-right: 5px solid $body-border-color;
   border-left: 5px solid $body-border-color;
   overflow-y: hidden;
+
   a {
     outline: 1px solid $main-color;
     text-decoration: none;
@@ -20,7 +21,6 @@ body {
 }
 
 .main-wrap {
-  height: 100vh;
   display: flex;
   flex-direction: column;
   position: relative;
