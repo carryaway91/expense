@@ -1,0 +1,56 @@
+@import '../../../variables';
+
+.wrapper {
+  position: relative;
+  top: -3vh;
+  right: -4vw;
+}
+
+.overview-info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+.income {
+  color: $income-color;
+  font-size: $font-size;
+  margin: 0;
+}
+
+.expense {
+  color: $expense-color;
+  font-size: $font-size;
+  margin: 0
+}
+
+p {
+  display: flex;
+  justify-content: space-between;
+  font-weight: bold;
+  position: relative;
+  right: 1vw;
+}
+
+.border {
+  width: 100%;
+  background: lightgray;
+  margin: .4rem 0;
+  height: 1px
+}
+
+h2 {
+  margin-bottom: .5rem;
+}
+
+.currency {
+  font-size: $currencyFS;
+  position: relative;
+  margin-left: .1rem;
+  align-self: flex-end;
+  bottom: .4vh
+}
+
+.transactions-btn {
+  position: relative;
+  top: 1.3rem;
+}

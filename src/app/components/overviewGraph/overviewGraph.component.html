@@ -1,0 +1,9 @@
+<div class="wrapper">
+      <app-graph-column [ngStyle]="{ display: 'flex', flexDirection: 'column-reverse'}" *ngFor="let column of data"
+      [amount]="column.amount"
+      [type]="column.type"
+      [maxHeight]="maxHeight"
+      [height]="column.height"
+      >
+    </app-graph-column>
+</div>

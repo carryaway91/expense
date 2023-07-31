@@ -1,0 +1,42 @@
+@import '../../../variables';
+
+
+ h2, strong {
+  text-align: center;
+}
+
+h3 {
+  margin: 2vh 0
+}
+strong {
+  display: block;
+  font-size: clamp(1rem, 10vw, 22vw);
+
+}
+.limit-form {
+  margin-top: 3vh
+}
+
+label {
+  display: block
+}
+.submit-limit-btn {
+  margin-top: 2vh
+}
+
+.category-item {
+  margin: 2vh 0
+}
+
+.tooltip {
+  position: absolute;
+  background: $main-color;
+  color: $main-bg;
+  padding: .3vw .6vw;
+  font-size: 1.6vw;
+}
+
+.tooltip-icon {
+  position: relative;
+  font-weight: bold;
+}

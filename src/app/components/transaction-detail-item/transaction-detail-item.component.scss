@@ -1,0 +1,48 @@
+@import '../../../variables';
+
+.info {
+  display: flex;
+  justify-content: space-between;
+  margin: 3vh 0;
+
+}
+
+.info-detail {
+  position: relative;
+  flex: 1;
+}
+
+.info-btn {
+  position: relative;
+  align-self: self-end;
+  flex: 1;
+  right: 2px;
+}
+p {
+  font-weight: bold;
+  font-size: $font-size;
+  span {
+    text-align: left;
+  }
+}
+
+.detail-link {
+  font-size: 1rem;
+  align-self: center;
+}
+.income {
+  color: $income-color;
+}
+
+.expense {
+  color: $expense-color;
+}
+
+.source {
+  color: rgb(117, 117, 117);
+  font-size: 3vw;
+  display: block
+}
+.currency {
+  font-size: $currencyFS;
+}

@@ -1,0 +1,7 @@
+@import './../../../variables';
+
+.wrapper  {
+  display: flex;
+  justify-content: center;
+  height: $grid-height
+}

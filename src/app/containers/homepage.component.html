@@ -1,0 +1,23 @@
+  <div class="wrapper">
+    <div class="overview">
+      <graph-grid>
+        <app-graph></app-graph>
+      </graph-grid>
+      <overview></overview>
+    </div>
+    <div>
+    </div>
+    <div class="spendings-link">
+      <button [routerLink]="['/spendings/' + currentMonth ]" >Most spent on: <strong> {{ mostSpentString}} ({{mostSpentNum | currency | currencyPipe}} czk)</strong></button>
+    </div>
+    <div class="money-left" *ngIf="totalLimit; else noLimit">
+      <button [routerLink]="['/limit/' + currentMonth]" >Money left to spend:<strong> {{ totalLimit | currency | currencyPipe}} czk</strong></button>
+    </div>
+    <ng-template #noLimit>
+      <div class="money-left">
+        <button [routerLink]="['/limit/' + currentMonth]" >Set limit for {{ currentMonth }}</button>
+      </div>
+    </ng-template>
+    <last-five-transactions></last-five-transactions>
+    <add-icome-dialog></add-icome-dialog>
+  </div>

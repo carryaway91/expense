@@ -1,0 +1,8 @@
+<div *ngIf="dialogVisible" class="overlay"></div>
+<div
+  class="wrapper"
+*ngIf="dialogVisible">
+<h3>Add Income / Expenses </h3>
+<p class="close" (click)="onCloseDialog()">&times;</p>
+  <add-income-expenses-component></add-income-expenses-component>
+</div>

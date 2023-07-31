@@ -1,0 +1,7 @@
+<div class="settings-panel" [ngStyle]="settingPanelVisible ? { right : '0' } : { right: '-100vw'}">
+  <button (click)="onCloseSettingsPanel()">x</button>
+  <ul>
+    <li (click)="onCloseSettingsPanel()" [routerLink]="['/settings/categories']">Categories</li>
+  </ul>
+</div>
+<div class="overlay" (click)="onCloseSettingsPanel()" [ngStyle]="settingPanelVisible ? { display: 'block'} : { display: 'none'}"></div>

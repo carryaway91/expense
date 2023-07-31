@@ -1,0 +1,10 @@
+<p class="info" [ngClass]="{'income': transaction.type === 'income', 'expense': transaction.type === 'expense'}">
+  <span class="info-detail">
+    {{ transaction.amount | currency | currencyPipe }}<span class="currency"><span class="currency">czk</span></span>
+    <span *ngIf="transaction.category_id" class="source">{{ transaction.date | date }} - {{ transaction.category_id | shorten }} </span>
+  </span>
+  <span class=info-btn>
+    <app-button link="/details/transaction/{{transaction.id}}" [text]="'Detail'"></app-button>
+  </span>
+</p>
+

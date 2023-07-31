@@ -1,0 +1,25 @@
+@import '../../../variables';
+
+.transaction {
+  text-align: center;
+}
+
+h3, p {
+  text-align: center;
+  font-size: $font-size;
+}
+p {
+  font-weight: bold;
+}
+.income {
+  color: $income-color
+}
+
+.expense {
+  color: $expense-color
+}
+
+.source {
+  color: rgb(148, 148, 148);
+  font-size: .8rem;
+}

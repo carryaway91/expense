@@ -1,0 +1,21 @@
+
+<div class="wrapper">
+
+   <h2 style="text-align: start;">{{ currentMonth }}</h2>
+   <div class="overview-info">
+
+     <p class="income">{{ income | currency | currencyPipe }}<span class="currency">czk</span></p>
+     <p class="expense">{{ expense | currency | currencyPipe }}<span class="currency">czk</span></p>
+
+     <div class="border"></div>
+
+     <p [ngClass]="{'income': income >= expense, 'expense': expense > income }">
+       <span>{{ income - expense | currency | currencyPipe  }}</span><span class="currency">czk</span></p>
+    </div>
+  <div class="transactions-btn">
+    <app-button link="/details/january" text="Transactions">Transactions</app-button>
+</div>
+  </div>
+
+
+

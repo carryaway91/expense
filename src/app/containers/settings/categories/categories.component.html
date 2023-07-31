@@ -1,0 +1,17 @@
+<div class="categories">
+  <h2>Add category</h2>
+  <form #form="ngForm">
+    <input autocomplete="off" type="text" ngModel name="name" placeholder="Category name">
+    <select name="type_id" [(ngModel)]="selected" >
+      <option [value]="'expense'" selected>Expense</option>
+      <option [value]="'income'">Income</option>
+    </select>
+    <button type="submit" (click)="onSubmit(form)">Submit</button>
+  </form>
+  <h2>Your list of categories</h2>
+  <ul>
+    <li *ngFor="let c of categories">{{ c.name }} - {{ c.type_id }} <button (click)="onRemoveCategory(c.id)">X</button></li>
+  </ul>
+
+
+</div>

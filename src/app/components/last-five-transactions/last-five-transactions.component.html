@@ -1,0 +1,5 @@
+<div>
+  <h3>Last 5 transactions</h3>
+    <app-transaction-detail-item  *ngFor="let item of lastFiveTransactions" [transaction]="item">
+    </app-transaction-detail-item>
+</div>

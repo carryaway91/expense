@@ -7,4 +7,8 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'expenses';
+  dialogVisible: boolean = false
+  onDialogVisible() {
+    this.dialogVisible = true
+  }
 }

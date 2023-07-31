@@ -1,0 +1,39 @@
+@import '../../../../variables';
+
+input, select, option {
+  padding: .1rem 0;
+  width: 40%;
+  border: 1px solid $body-border-color;
+  padding:  .2rem .4rem
+}
+
+select {
+  width: 44.5%;
+
+  option {
+    width: 40vw
+  }
+}
+
+.amount {
+  direction: rtl;
+  caret-color: transparent;
+
+}
+option {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+.form-control {
+  margin: .5rem 0
+}
+
+textarea {
+  resize: none;
+  border: 1px solid $body-border-color;
+  padding:  .2rem .5rem
+
+
+}

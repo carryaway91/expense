@@ -1,0 +1,25 @@
+<form  #amountForm="ngForm">
+  <div class="form-control">
+    <select name="type" [(ngModel)]="selected_type" required>
+      <option
+      *ngFor="let item of data" [value]="item.type">{{ item.type }}</option>
+    </select>
+  </div>
+  <div class="form-control">
+    <select [(ngModel)]="selected_category" name="category_id" required>
+      <option *ngFor="let category of categories" [value]="category.id">{{ category.name }}</option>
+    </select>
+  </div>
+  <div class="form-control" required>
+    <input type="date" name="date" [(ngModel)]="date" placeholder="Optional">
+  </div>
+  <div class="form-control">
+    <input class="amount" required type="number" placeholder="Amount" max="99999999" name="amount" ngModel min="0">
+  </div>
+  <div class="form-control">
+    <textarea name="note" id="" cols="18" ngModel rows="5" placeholder="Note(Optional)"></textarea>
+  </div>
+  <button type="button" (click)="add(amountForm)" [disabled]="!amountForm.valid" style="margin-right: 1vw">Add</button>
+  <button type="submit" (click)="addAndClose(amountForm)" [disabled]="!amountForm.valid">Add and close</button>
+</form>
+
