@@ -37,8 +37,7 @@ export class IncomeExportService {
   categoriesChanged = new Subject<Category[]>()
   getLimitForCurrentMonthChanged = new Subject<number>();
   spendings$ = new Subject<IncomeExpensesModel[]>()
-  spendingsComputed$ = new Subject<{ name: string; amount: number}[]>();
-
+  computedSpendings$ = new Subject()
   categoriesList: Category[] = []
 
   constructor() {
@@ -219,8 +218,23 @@ export class IncomeExportService {
   getSpendings(): IncomeExpensesModel[] {
     const spendings = this.getAllTransaction().filter(i => i.type === GraphColumn.EXPENSE)
     const computed:any = []
-    this.spendingsComputed$.next(computed)
     this.spendings$.next(spendings)
     return spendings;
+  }
+
+  getComputedSpendings() {
+    let computed: {id: string; name: string; amount: number}[] = [];
+    computed = this.getCategories().filter(x => x.type_id === GraphColumn.EXPENSE).map(c => {
+     return { id:c.id, name: c.name, amount: 0 }
+    })
+    this.getSpendings().map(s => {
+      computed.map(item => {
+        if(item.id === s.category_id) {
+            item.amount += s.amount
+        }
+      })
+    })
+    this.computedSpendings$.next(computed);
+    return computed;
   }
 }

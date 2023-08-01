@@ -35,6 +35,7 @@ export const categories: Category[] = [
     name: CategoryEnum.MISC,
     source: 0
   },
+
   {
     id: 'salary_id',
     type_id: GraphColumn.INCOME,

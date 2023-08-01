@@ -26,8 +26,9 @@ export class SpendingsDetailComponent implements OnInit , OnDestroy{
   @ViewChild("chart") chart: ChartComponent;
   public chartOptions: Partial<ChartOptions>;
 
-  spendings: IncomeExpensesModel[] = [];
+  spendings: any = [];
   subs: Subscription[] = []
+  computed: any = [];
 
   constructor(private iEs: IncomeExportService) {
     this.subs.push(this.iEs.spendings$.subscribe((s: IncomeExpensesModel[]) => {
@@ -35,12 +36,15 @@ export class SpendingsDetailComponent implements OnInit , OnDestroy{
       labels = labels.map(id => this.iEs.getCategory(id))
       console.log(labels)
       const series = Array.from(new Set(s.map(s => s.amount)))
-      this.initChart(labels, series)
     }))
   }
 
   ngOnInit(): void {
-    this.spendings = this.iEs.getSpendings()
+    this.spendings = this.iEs.getComputedSpendings()
+    this.initChart(this.spendings.map((s: any) => s.name), this.spendings.map((s: any) => s.amount))
+    this.subs.push(this.iEs.computedSpendings$.subscribe(val => {
+      this.spendings = val
+    }))
   }
 
   ngOnDestroy(): void {

@@ -11,5 +11,23 @@ h2 {
   text-align: center;
   margin-bottom: 3vh;
 }
-#chart {
+
+ul {
+  padding: 0;
+  height: 48.6vh;
+  overflow-y: scroll;
+}
+.spending-item {
+  margin: 0 auto;
+  width: 70vw;
+  list-style-type: none;
+  display: flex;
+  justify-content: space-between;
+  text-align: left;
+  padding: 1vh 2vw;
+  font-weight: normal;
+}
+
+.spending-item:nth-child(odd) {
+  background: lighten($main-color, 65%)
 }
