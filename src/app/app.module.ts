@@ -29,6 +29,7 @@ import { OverallOverviewComponent } from './containers/overall-overview/overall-
 import { SettingsPanelComponent } from './components/settings-panel/settings-panel.component';
 import { CategoriesComponent } from './containers/settings/categories/categories.component';
 import { NgApexchartsModule } from 'ng-apexcharts';
+import { TableComponent } from './components/shared/table/table.component';
 
 @NgModule({
   declarations: [
@@ -56,6 +57,7 @@ import { NgApexchartsModule } from 'ng-apexcharts';
     OverallOverviewComponent,
     SettingsPanelComponent,
     CategoriesComponent,
+    TableComponent,
   ],
   imports: [
     NgApexchartsModule,

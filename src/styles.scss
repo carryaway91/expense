@@ -23,6 +23,8 @@ body {
 h1, h2, h3, h4, h5, h6, p {
   color: darken($main-color, 45%);
   margin: 0;
+  font-size: 9vw;
+  text-align: center;
   font-weight: normal;
 }
 .currency {
@@ -64,4 +66,25 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   position: fixed;
   top: 0;
   left: 0
+}
+
+.secondary-btn {
+  border-radius: 0;
+  border: transparent;
+  background: $main-color;
+  color: $main-bg;
+  padding: 1vw 2vw;
+  box-shadow: 0 2px 5px 0px gray;
+  transition: all .1s ease-in-out;
+}
+
+.secondary-btn:active {
+  transform: translateY(1px)
+}
+.secondary-btn:disabled {
+  background: gray
+}
+
+input {
+  padding: 1vw 2vw
 }

@@ -28,8 +28,11 @@ export class CategoriesComponent implements OnInit, OnDestroy {
     this.subs.map(s => s.unsubscribe())
   }
 
-  onRemoveCategory(id: string) {
-    this.iEs.removeCategory(id)
+  onRemoveCategory(id: string, name: string) {
+    const confirm = window.confirm(`Do you want to remove "${name}" category?`)
+    if(confirm) {
+      this.iEs.removeCategory(id)
+    }
   }
 
   onSubmit(form: NgForm) {

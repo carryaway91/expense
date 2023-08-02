@@ -9,6 +9,4 @@
     ></apx-chart>
   </div>
 </div>
-<ul>
-  <li class="spending-item" *ngFor="let s of spendings"><span>{{ s.name }}</span> <span class="expense">{{ s.amount  | currency | currencyPipe }}<span class="currency"> czk</span></span></li>
-</ul>
+<app-table [data]="spendings"></app-table>

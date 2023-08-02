@@ -190,13 +190,16 @@ export class IncomeExportService {
   }
 
   addCategory(category: Category) {
-    const categoryNameCapitalized = category.name.slice(0, 1).toUpperCase() + category.name.slice(1, category.name.length).toLowerCase()
-    const existingCategory = this.categoriesList.find(c => c.name === categoryNameCapitalized);
-    if(!existingCategory) {
-      this.categoriesList.push(category)
-      this.categoriesChanged.next(this.categoriesList)
-    } else {
-      alert(`Category "${existingCategory.name}" already exists.`)
+    if(category.name) {
+      const categoryNameCapitalized = category.name.slice(0, 1).toUpperCase() + category.name.slice(1, category.name.length).toLowerCase()
+      const existingCategory = this.categoriesList.find(c => this.capitalizeString(c.name) === categoryNameCapitalized);
+      console.log(existingCategory)
+      if(!existingCategory) {
+        this.categoriesList.push(category)
+        this.categoriesChanged.next(this.categoriesList)
+      } else {
+        alert(`Category "${existingCategory.name}" already exists.`)
+      }
     }
    }
 
@@ -240,4 +243,9 @@ export class IncomeExportService {
     this.biggestSpending$.next(sorted[0])
     return sorted[0]
   }
+
+  capitalizeString(string: string) {
+    return string.slice(0, 1).toUpperCase() + string.slice(1, string.length).toLowerCase()
+  }
+
 }
