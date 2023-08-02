@@ -42,6 +42,106 @@ export const categories: Category[] = [
     name: CategoryEnum.WORK,
     source: 1
   },
+  {
+    id: 'food_id',
+    type_id: GraphColumn.EXPENSE,
+    name: CategoryEnum.FOOD,
+    source: 0
+  },
+  {
+    id: 'clothing_id',
+    type_id: GraphColumn.EXPENSE,
+    name: CategoryEnum.CLOTHING,
+    source: 0
+  },
+  {
+    id: 'misc_id',
+    type_id: GraphColumn.EXPENSE,
+    name: CategoryEnum.MISC,
+    source: 0
+  },
+
+  {
+    id: 'salary_id',
+    type_id: GraphColumn.INCOME,
+    name: CategoryEnum.WORK,
+    source: 1
+  },
+  {
+    id: 'food_id',
+    type_id: GraphColumn.EXPENSE,
+    name: CategoryEnum.FOOD,
+    source: 0
+  },
+  {
+    id: 'clothing_id',
+    type_id: GraphColumn.EXPENSE,
+    name: CategoryEnum.CLOTHING,
+    source: 0
+  },
+  {
+    id: 'misc_id',
+    type_id: GraphColumn.EXPENSE,
+    name: CategoryEnum.MISC,
+    source: 0
+  },
+
+  {
+    id: 'salary_id',
+    type_id: GraphColumn.INCOME,
+    name: CategoryEnum.WORK,
+    source: 1
+  },
+  {
+    id: 'food_id',
+    type_id: GraphColumn.EXPENSE,
+    name: CategoryEnum.FOOD,
+    source: 0
+  },
+  {
+    id: 'clothing_id',
+    type_id: GraphColumn.EXPENSE,
+    name: CategoryEnum.CLOTHING,
+    source: 0
+  },
+  {
+    id: 'misc_id',
+    type_id: GraphColumn.EXPENSE,
+    name: CategoryEnum.MISC,
+    source: 0
+  },
+
+  {
+    id: 'salary_id',
+    type_id: GraphColumn.INCOME,
+    name: CategoryEnum.WORK,
+    source: 1
+  },
+  {
+    id: 'food_id',
+    type_id: GraphColumn.EXPENSE,
+    name: CategoryEnum.FOOD,
+    source: 0
+  },
+  {
+    id: 'clothing_id',
+    type_id: GraphColumn.EXPENSE,
+    name: CategoryEnum.CLOTHING,
+    source: 0
+  },
+  {
+    id: 'misc_id',
+    type_id: GraphColumn.EXPENSE,
+    name: CategoryEnum.MISC,
+    source: 0
+  },
+
+  {
+    id: 'salary_id',
+    type_id: GraphColumn.INCOME,
+    name: CategoryEnum.WORK,
+    source: 1
+  },
 ]
 
 export const limit: LimitModel = {

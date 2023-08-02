@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, ElementRef, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Subscription } from 'rxjs';
 import { TypesEnum } from 'src/app/enums/category';
@@ -14,6 +14,7 @@ export class CategoriesComponent implements OnInit, OnDestroy {
   categories: Category[] =[]
   subs: Subscription[] = []
   selected = TypesEnum.EXPENSE;
+  @ViewChild('input') input: ElementRef;
 
   constructor(private iEs: IncomeExportService) {}
 
@@ -42,6 +43,7 @@ export class CategoriesComponent implements OnInit, OnDestroy {
       type_id: form.form.controls['type_id'].value,
     }
     this.iEs.addCategory(newCategory);
+    this.input.nativeElement.value = ''
   }
 
 }

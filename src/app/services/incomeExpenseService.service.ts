@@ -195,7 +195,7 @@ export class IncomeExportService {
       const existingCategory = this.categoriesList.find(c => this.capitalizeString(c.name) === categoryNameCapitalized);
       console.log(existingCategory)
       if(!existingCategory) {
-        this.categoriesList.push(category)
+        this.categoriesList.unshift(category)
         this.categoriesChanged.next(this.categoriesList)
       } else {
         alert(`Category "${existingCategory.name}" already exists.`)
