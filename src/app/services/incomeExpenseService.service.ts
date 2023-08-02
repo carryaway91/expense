@@ -27,6 +27,7 @@ export class IncomeExportService {
   }
   public spendings: any[];
   public limitForCurrentMonth: number;
+  categoriesList: Category[] = []
 
   incomeChanged = new BehaviorSubject<number>(this.incomeTotal)
   expensesChanged = new BehaviorSubject<number>(this.expensesTotal)
@@ -38,7 +39,7 @@ export class IncomeExportService {
   getLimitForCurrentMonthChanged = new Subject<number>();
   spendings$ = new Subject<IncomeExpensesModel[]>()
   computedSpendings$ = new Subject()
-  categoriesList: Category[] = []
+  biggestSpending$ = new Subject<{ id: string; amount: number; name: string}>()
 
   constructor() {
     this.data = data
@@ -164,13 +165,10 @@ export class IncomeExportService {
       } else {
         this.mostSpendingOn.mostSpentOnNumber = biggestSpendingAmount[0].amount
         const cat = categories.find(c => c.id === biggestSpendingAmount[0].category_id)
-        console.log(cat?.name)
         this.mostSpendingOn.mostSpentOnString = cat!.name
-        console.log('druhaaa')
       }
       console.log(this.mostSpendingOn)
       this.mostSpendingOnChanged.next(this.mostSpendingOn);
-      console.log('changes')
     }
 
 
@@ -217,7 +215,6 @@ export class IncomeExportService {
 
   getSpendings(): IncomeExpensesModel[] {
     const spendings = this.getAllTransaction().filter(i => i.type === GraphColumn.EXPENSE)
-    const computed:any = []
     this.spendings$.next(spendings)
     return spendings;
   }
@@ -236,5 +233,11 @@ export class IncomeExportService {
     })
     this.computedSpendings$.next(computed);
     return computed;
+  }
+
+  getBiggestSpending() {
+    const sorted = this.getComputedSpendings().sort((a, b) => b.amount - a.amount)
+    this.biggestSpending$.next(sorted[0])
+    return sorted[0]
   }
 }

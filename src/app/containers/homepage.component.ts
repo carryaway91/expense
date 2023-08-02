@@ -19,17 +19,20 @@ export class HomepageComponent implements OnInit, OnDestroy {
   constructor(private iEs: IncomeExportService) {}
 
   ngOnInit() {
+    this.mostSpentNum = this.iEs.getBiggestSpending().amount
+    this.mostSpentString = this.iEs.getBiggestSpending().name
+    this.iEs.biggestSpending$.subscribe(val => {
+      this.mostSpentNum = val.amount
+      this.mostSpentString = val.name
+    })
     this.totalLimit = this.iEs.getTotalLimit()
     this.sub.push(this.iEs.limitForCurrentMonthChanged.subscribe(val => {
       this.totalLimit = val
     }))
-    this.currentMonth = this.iEs.getCurrentMonth()
-    this.mostSpentNum = this.iEs.mostSpendingOn.mostSpentOnNumber
-    this.mostSpentString = this.iEs.mostSpendingOn.mostSpentOnString
-    this.sub.push(this.iEs.mostSpendingOnChanged.subscribe(val => {
-      this.mostSpentNum = val.mostSpentOnNumber;
-      this.mostSpentString = val.mostSpentOnString
+    this.sub.push(this.iEs.biggestSpending$.subscribe(val => {
     }))
+    this.currentMonth = this.iEs.getCurrentMonth()
+
   }
 
   ngOnDestroy(): void {

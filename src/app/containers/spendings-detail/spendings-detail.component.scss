@@ -16,6 +16,7 @@ ul {
   padding: 0;
   height: 48.6vh;
   overflow-y: scroll;
+
 }
 .spending-item {
   margin: 0 auto;
@@ -26,8 +27,12 @@ ul {
   text-align: left;
   padding: 1vh 2vw;
   font-weight: normal;
+  border-bottom: 1px solid $main-color
 }
 
 .spending-item:nth-child(odd) {
   background: lighten($main-color, 65%)
+}
+.spending-item:last-child {
+  border-bottom: none
 }

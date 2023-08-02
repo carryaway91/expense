@@ -46,6 +46,7 @@ export class AddIncomeExpensesComponent {
     this.iEs.setMaxHight(1, 0)
     this.iEs.addToAllTransactions(data)
     form.controls['amount'].setValue('')
+    this.iEs.getBiggestSpending()
   }
 
   add(form: NgForm) {
