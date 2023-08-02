@@ -4,7 +4,6 @@
 body {
   height: 100vh;
   margin: 0 auto;
-
   font-family: "Lato";
   margin: 0 auto;
   background-color: $main-bg;
@@ -14,7 +13,6 @@ body {
   border-right: 5px solid $body-border-color;
   border-left: 5px solid $body-border-color;
   overflow-y: hidden;
-  justify-content: flex-end;
 
   a {
     outline: 1px solid $main-color;

@@ -13,10 +13,12 @@ body {
   display: flex;
   flex-direction: column;
   position: relative;
+  bottom: 0;
 }
 
 .outlet-wrap {
   position: relative;
   height: 92vh;
-  padding: 5vh 4vw 0 4vw;
+  padding: 6vh 4vw 0 4vw;
+  z-index: 1;
 }
