@@ -176,7 +176,7 @@ export class IncomeExportService {
     this.allTransactions.unshift(data)
     this.allTransactionsChanged.next(this.allTransactions);
     this.setSpendings()
-    this.addLastFiveTransactionsChanged.next(this.allTransactions.slice(0, 5));
+    this.addToLastFive(data)
   }
 
   addToLastFive(data: IncomeExpensesModel) {
