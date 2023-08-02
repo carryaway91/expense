@@ -6,6 +6,7 @@
 body {
   margin: 0;
   padding: 0;
+  overflow-y: scroll;
 }
 
 .main-wrap {
@@ -16,5 +17,6 @@ body {
 
 .outlet-wrap {
   position: relative;
-  height: calc(100vh - 12vh)
+  height: 92vh;
+  padding: 5vh 4vw 0 4vw;
 }
