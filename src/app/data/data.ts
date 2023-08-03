@@ -24,120 +24,120 @@ export const categories: Category[] = [
     source: 0
   },
   {
-    id: 'clothing_id',
+    id: 'clothing_id1',
     type_id: GraphColumn.EXPENSE,
     name: CategoryEnum.CLOTHING,
     source: 0
   },
   {
-    id: 'misc_id',
+    id: 'misc_id1',
     type_id: GraphColumn.EXPENSE,
     name: CategoryEnum.MISC,
     source: 0
   },
 
   {
-    id: 'salary_id',
+    id: 'salary_id1',
     type_id: GraphColumn.INCOME,
     name: CategoryEnum.WORK,
     source: 1
   },
   {
-    id: 'food_id',
+    id: 'food_id6',
     type_id: GraphColumn.EXPENSE,
     name: CategoryEnum.FOOD,
     source: 0
   },
   {
-    id: 'clothing_id',
+    id: 'clothing_id2',
     type_id: GraphColumn.EXPENSE,
     name: CategoryEnum.CLOTHING,
     source: 0
   },
   {
-    id: 'misc_id',
+    id: 'misc_id2',
     type_id: GraphColumn.EXPENSE,
     name: CategoryEnum.MISC,
     source: 0
   },
 
   {
-    id: 'salary_id',
+    id: 'salary_id2',
     type_id: GraphColumn.INCOME,
     name: CategoryEnum.WORK,
     source: 1
   },
   {
-    id: 'food_id',
+    id: 'food_id1',
     type_id: GraphColumn.EXPENSE,
     name: CategoryEnum.FOOD,
     source: 0
   },
   {
-    id: 'clothing_id',
+    id: 'clothing_id3',
     type_id: GraphColumn.EXPENSE,
     name: CategoryEnum.CLOTHING,
     source: 0
   },
   {
-    id: 'misc_id',
+    id: 'misc_id3',
     type_id: GraphColumn.EXPENSE,
     name: CategoryEnum.MISC,
     source: 0
   },
 
   {
-    id: 'salary_id',
+    id: 'salary_id3',
     type_id: GraphColumn.INCOME,
     name: CategoryEnum.WORK,
     source: 1
   },
   {
-    id: 'food_id',
+    id: 'food_id2',
     type_id: GraphColumn.EXPENSE,
     name: CategoryEnum.FOOD,
     source: 0
   },
   {
-    id: 'clothing_id',
+    id: 'clothing_id4',
     type_id: GraphColumn.EXPENSE,
     name: CategoryEnum.CLOTHING,
     source: 0
   },
   {
-    id: 'misc_id',
+    id: 'misc_id4',
     type_id: GraphColumn.EXPENSE,
     name: CategoryEnum.MISC,
     source: 0
   },
 
   {
-    id: 'salary_id',
+    id: 'salary_id4',
     type_id: GraphColumn.INCOME,
     name: CategoryEnum.WORK,
     source: 1
   },
   {
-    id: 'food_id',
+    id: 'food_id3',
     type_id: GraphColumn.EXPENSE,
     name: CategoryEnum.FOOD,
     source: 0
   },
   {
-    id: 'clothing_id',
+    id: 'clothing_id5',
     type_id: GraphColumn.EXPENSE,
     name: CategoryEnum.CLOTHING,
     source: 0
   },
   {
-    id: 'misc_id',
+    id: 'misc_id5',
     type_id: GraphColumn.EXPENSE,
     name: CategoryEnum.MISC,
     source: 0
   },
 
   {
-    id: 'salary_id',
+    id: 'salary_id5',
     type_id: GraphColumn.INCOME,
     name: CategoryEnum.WORK,
     source: 1

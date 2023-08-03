@@ -20,3 +20,13 @@
   background-color: rgba(0,0,0,.5);
   z-index: 1111111111
 }
+
+.settings-list {
+  list-style-type: none;
+
+  .settings-item {
+    padding: 1vh 2vw;
+    border-bottom: 1px solid $body-border-color
+  }
+}
+
