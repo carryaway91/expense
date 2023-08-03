@@ -37,6 +37,10 @@ export class LimitComponent implements OnInit, OnDestroy {
 
 
   ngOnInit(): void {
+    this.totalLimit = this.iEs.getTotalLimit()
+    this.subs.push(this.iEs.getLimitForCurrentMonthChanged.subscribe(val => {
+      this.totalLimit = val
+    }))
     this.preSelectedCategory = categories[1].id
     this.limit = this.iEs.limitForCurrentMonth
     this.currentMonth = this.iEs.getCurrentMonth()
@@ -86,6 +90,7 @@ export class LimitComponent implements OnInit, OnDestroy {
    this.onRemoveFromAvailable(option.value)
    this.totalLimit += +this.inputRef.nativeElement.value
    this.inputRef.nativeElement.value = ''
+   this.iEs.getLimitForCurrentMonthChanged.next(this.totalLimit)
   }
 
   addToTotalLimitGeneral() {
