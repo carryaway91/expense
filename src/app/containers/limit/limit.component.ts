@@ -31,6 +31,7 @@ export class LimitComponent implements OnInit, OnDestroy {
   public preSelectedCategory: string;
   public categoriesVisible:  boolean = false;
   public showAddCategoryTooltip: boolean = false;
+  public overalCategories: Category[];
 
   constructor(private iEs: IncomeExportService, private uIs: UIService) {}
 
@@ -50,6 +51,7 @@ export class LimitComponent implements OnInit, OnDestroy {
     }))
     this.iEs.limitForCurrentMonthChanged.subscribe(val => this.limit = val)
     this.availableCategories = this.iEs.categoriesList.filter(c => c.type_id !== GraphColumn.INCOME)
+    this.overalCategories = this.iEs.categoriesList.filter(c => c.type_id !== GraphColumn.INCOME)
   }
 
   ngOnDestroy() {
@@ -67,10 +69,8 @@ export class LimitComponent implements OnInit, OnDestroy {
 
 
   onRemoveFromAvailable(id: string) {
-    console.log(id)
     if(id) {
       this.availableCategories = this.availableCategories.filter(c => c.id !== id)
-      console.log(this.availableCategories)
     }
   }
 
@@ -99,6 +99,19 @@ export class LimitComponent implements OnInit, OnDestroy {
     console.log(this.limits)
   }
 
+  removeFromLimits(limit: LimitModel) {
+    if(limit) {
+      const confirm = window.confirm(`Do you want to remove "${limit.name}" limit?`);
+      if(confirm && this.overalCategories.length) {
+        const cat = this.overalCategories!.find(c => c.name === limit.name)
+        if(cat) {
+          this.availableCategories.push(cat)
+          this.totalLimit -= limit.amount
+          this.limits = this.limits.filter(l => l.id !== limit.id)
+        }
+      }
+    }
+  }
   onSubmit() {
     if(this.generalInputRef) {
       this.addToTotalLimitGeneral()

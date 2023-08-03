@@ -10,11 +10,11 @@ h3 {
 }
 strong {
   display: block;
-  font-size: clamp(1rem, 10vw, 22vw);
-
+  margin-top: 3vh;
 }
 .limit-form {
-  margin-top: 3vh
+  margin-top: 3vh;
+  text-align: center;
 }
 
 label {
@@ -25,18 +25,92 @@ label {
 }
 
 .category-item {
-  margin: 2vh 0
+  display: flex;
+  justify-content: center;
 }
 
 .tooltip {
   position: absolute;
-  background: $main-color;
-  color: $main-bg;
-  padding: .3vw .6vw;
-  font-size: 1.6vw;
+  width: 63vw;
+  background: #322653;
+  color: rgb(244, 244, 249);
+  padding: 0.6vw;
+  font-size: 4vw;
+  top: -3.7vh;
+  right: -1vw;
+  line-height: 6vw;
+  box-shadow: 0 2px 4px 0px gray;
 }
 
 .tooltip-icon {
   position: relative;
   font-weight: bold;
+}
+
+select {
+  margin: 0 2vw
+}
+
+button {
+  margin-right: 2vw
+}
+
+
+.limit-wrap {
+  margin-top: 4vh;
+  text-align: center;
+  padding: 0
+}
+
+.limit {
+  margin-bottom: 0;
+  margin-top: 2vh;
+  padding: 0;
+  height: 71.7vh;
+  overflow: scroll;
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */;
+
+}
+
+.limit::-webkit-scrollbar {
+  display: none
+}
+
+.limit-item {
+  margin: 0 auto;
+  width: 80vw;
+  list-style-type: none;
+  display: flex;
+  justify-content: space-between;
+  text-align: left;
+  padding: 1vh 2vw;
+  font-weight: normal;
+  font-size: 4vw;
+  border-bottom: 1px solid $main-color;
+
+  span:first-child {
+    width: 53%;
+    overflow: hidden
+  }
+}
+
+.limit-item:nth-child(odd) {
+  background: lighten($main-color, 65%)
+}
+.limit-item:nth-child(even) {
+  background: lighten($main-color, 80%)
+}
+.limit-item:last-child {
+  border-bottom: none
+}
+
+.remove-cat {
+  color: $expense-color;
+  font-weight: bold;
+}
+
+h4 {
+  font-size: 6vw;
+    margin-top: 3vh;
 }

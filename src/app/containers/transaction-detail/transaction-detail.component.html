@@ -1,6 +1,6 @@
 <ng-container *ngIf="transaction">
   <div class="flex-center-col center wrapper-full wrap">
-    <h3 [ngClass]="{'income': transaction.type === 'income', 'expense': transaction.type === 'expense'}">
+    <h3 class="main-amount" [ngClass]="{'income': transaction.type === 'income', 'expense': transaction.type === 'expense'}">
   {{ transaction.amount | currency | currencyPipe }}</h3>
   <p>{{ transaction.date | date}}</p>
   <p *ngIf="transaction.category_id"><span class="header">Spent in:</span> {{ transaction.category_id }}</p>

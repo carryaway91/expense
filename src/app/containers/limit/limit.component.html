@@ -1,50 +1,46 @@
 <div>
   <h2>Limit for {{ currentMonth }}</h2>
-  <strong>{{ totalLimit | currency | currencyPipe }}</strong>
+  <strong class="main-amount">{{ totalLimit | currency | currencyPipe }}</strong>
 
   <div class="limit-form">
     <ng-container  *ngIf="!categoriesVisible; else categoriesForm">
       <form #overalLimit="ngForm">
-        <p>Overall amount</p>
         <div class="total-amount">
-          <input type="number" ngModel [max]="9999999" [min]="1" #overalValueInput placeholder="Amount" name="amount" id="totalAmount">
+          <input type="number" required ngModel [max]="9999999" [min]="1" #overalValueInput placeholder="Amount" name="amount" id="totalAmount">
         </div>
         <div class="submit-limit-btn">
-          <button type="submit" (click)="onSubmit()">Submit</button>
-          <button class="cat-total-btn" (click)="onShowCategories()" *ngIf="!categoriesVisible">
+          <button class="secondary-btn" type="submit" [disabled]="!overalLimit.valid" (click)="onSubmit()">Submit</button>
+          <button class="secondary-btn cat-total-btn" (click)="onShowCategories()" *ngIf="!categoriesVisible">
             Show categories
           </button>
         </div>
       </form>
     </ng-container>
     <ng-template #categoriesForm>
-      <form #limitForm="ngForm" >
-        <div *ngIf="categoriesVisible">
-          <p>Select category and amount</p>
-          <div class="category-item" *ngIf="availableCategories.length">
-            <div>
+        <form class="limit-form" #limitForm="ngForm">
+          <div>
+            <div class="category-item" *ngIf="availableCategories.length">
               <input type="number" ngModel [min]="1" required name="amount" placeholder="Amount" #categoryInputValue >
+              <select name="category" required [(ngModel)]="preSelectedCategory" id="category" (change)="onChangePreselected($event)">
+                <option *ngFor="let category of availableCategories" [value]="category.id" id="categoryOption">{{ category.name }}</option>
+              </select>
+              <button class="secondary-btn" (click)="addLimit()" [disabled]="!categoryInputValue.value">&plus;</button>
+              <span class="tooltip-icon" (click)="showTooltip()">?
+                <span class="tooltip" *ngIf="showAddCategoryTooltip">You can add a category in settings</span>
+              </span>
             </div>
-
-            <select name="category" [(ngModel)]="preSelectedCategory" id="category" (change)="onChangePreselected($event)">
-              <option *ngFor="let category of availableCategories" [value]="category.id" id="categoryOption">{{ category.name }}</option>
-            </select>
-            <button (click)="addLimit()" [disabled]="!categoryInputValue.value">&plus;</button>
-            <span class="tooltip-icon" (click)="showTooltip()">?
-              <span class="tooltip" *ngIf="showAddCategoryTooltip">You can add a category in settings</span>
-            </span>
           </div>
-          <ng-container *ngIf="limits.length > 0">
-            <p *ngFor="let limit of limits">{{ limit.name }} {{ limit.amount }}</p>
-          </ng-container>
-        </div>
         <div class="submit-limit-btn">
-          <button type="submit" (click)="onSubmit()">Submit</button>
-          <button class="cat-total-btn" (click)="onShowCategories()" *ngIf="categoriesVisible">
+          <button class="secondary-btn" type="submit" (click)="onSubmit()" [disabled]="!limitForm.valid">Submit</button>
+          <button class="secondary-btn cat-total-btn " (click)="onShowCategories()" *ngIf="categoriesVisible">
             Cancel categories
           </button>
         </div>
       </form>
+      <h4>Categories</h4>
+      <ul class="limit-wrap">
+        <li class="limit-item" *ngFor="let limit of limits"><span>{{ limit.name }}</span><span>{{ limit.amount | currency | currencyPipe }}<span class="currency"> czk</span></span><span (click)="removeFromLimits(limit)" class="remove-cat">&times;</span></li>
+      </ul>
     </ng-template>
   </div>
 </div>

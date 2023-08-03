@@ -23,7 +23,6 @@ body {
 h1, h2, h3, h4, h5, h6, p {
   color: darken($main-color, 45%);
   margin: 0;
-  font-size: 9vw;
   text-align: center;
   font-weight: normal;
 }
@@ -87,4 +86,11 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 input {
   padding: 1vw 2vw
+}
+
+input[type=number] {
+  max-width: 20vw;
+}
+.main-amount {
+  font-size: clamp(1rem, 14vw, 16vw)
 }
